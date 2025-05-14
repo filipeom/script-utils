@@ -36,3 +36,7 @@ let copy_rec category files target =
         Format.eprintf "ERROR: could not copy files form '%s' to '%s'@." source
           target;
       (category, source))
+
+let copy src dst =
+  let data = In_channel.with_open_text src In_channel.input_all in
+  Out_channel.with_open_text dst (fun oc -> Out_channel.output_string oc data)
