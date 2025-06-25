@@ -11,7 +11,7 @@ let rec find ?(recursive = false)
           match filter with
           | None -> fun _ -> true
           | Some `Files -> Sys.is_regular_file
-          | Some `Dirs -> Sys.is_regular_file
+          | Some `Dirs -> Sys.is_directory
           | Some (`Sat f) -> f
         in
         let full_path = Filename.concat dir d in
